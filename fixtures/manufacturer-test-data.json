@@ -1,0 +1,11 @@
+{
+  "routes": {
+    "manufacturerList": "/app/manufacturer"
+  },
+  "negativeMessages": {
+    "missingShortNameField": "Short Name"
+  },
+  "positiveMessages": {
+    "saved": "Saved"
+  }
+}

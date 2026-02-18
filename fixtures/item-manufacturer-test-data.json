@@ -1,0 +1,14 @@
+{
+  "routes": {
+    "itemManufacturerList": "/app/item-manufacturer"
+  },
+  "defaults": {
+    "manufacturerName": "Global"
+  },
+  "negativeMessages": {
+    "missingPartNumberField": "Manufacturer Part Number"
+  },
+  "positiveMessages": {
+    "saved": "Saved"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "routes": {
+    "itemList": "/app/item"
+  },
+  "itemDefaults": {
+    "codePrefix": "fg-item",
+    "itemGroup": "Products",
+    "revisionNumber": "A",
+    "builtType": "Standard",
+    "hsnCode": "84439100"
+  },
+  "negativeMessages": {
+    "missingFieldsTitle": "Missing Fields",
+    "missingFieldsBody": "Following fields have missing values",
+    "missingFieldsBodyWithColon": "Following fields have missing values:",
+    "missingFieldsBodyAlternate": "Mandatory fields required in Item",
+    "missingItemCodeField": "Item Code",
+    "missingItemGroupField": "Item Group",
+    "revisionTitle": "Missing Fields",
+    "revisionBody": "Mandatory fields required in Item",
+    "revisionBodyAlternate": "Following fields have missing values",
+    "revisionField": "Revision Number",
+    "hsnRequired": "HSN/SAC Code is required. Please enter a valid HSN/SAC code.",
+    "hsnRequiredShort": "HSN/SAC Code is required",
+    "hsnRequiredCodeOnly": "HSN/SAC"
+  },
+  "positiveMessages": {
+    "saved": "Saved"
+  }
+}
