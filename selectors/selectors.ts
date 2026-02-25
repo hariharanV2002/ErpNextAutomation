@@ -54,6 +54,16 @@ const itemManufacturerListSelectors = {
   tableRow: ['.result-list .list-row', '.dt-row', '[data-name] .list-row']
 } as const;
 
+const purchaseItemPriceListSelectors = {
+  addItemPriceButton: ['button:has-text("Add Item Price")', 'a:has-text("Add Item Price")'],
+  searchItemCodeInput: [
+    'input[data-fieldname="item_code"]',
+    'input[aria-label="Item Code"]',
+    'input[placeholder="Item Code"]'
+  ],
+  tableRow: ['.result-list .list-row', '.dt-row', '[data-name] .list-row']
+} as const;
+
 const itemFormSelectors = {
   pageHeader: [
     'h3:has-text("New Item")',
@@ -131,12 +141,46 @@ const itemManufacturerFormSelectors = {
   ]
 } as const;
 
+const purchaseItemPriceFormSelectors = {
+  saveButton: ['button:has-text("Save")', '.primary-action:has-text("Save")'],
+  itemCodeInput: [
+    'input[data-fieldname="item_code"]',
+    'label:has-text("Item Code") + div input'
+  ],
+  priceListInput: [
+    'input[data-fieldname="price_list"]',
+    'label:has-text("Price List") + div input'
+  ],
+  supplierInput: [
+    'input[data-fieldname="supplier"]',
+    'label:has-text("Supplier") + div input'
+  ],
+  customerInput: [
+    'input[data-fieldname="customer"]',
+    'label:has-text("Customer") + div input'
+  ],
+  uomInput: [
+    'input[data-fieldname="uom"]',
+    'label:has-text("UOM") + div input'
+  ],
+  priceListRateInput: [
+    'input[data-fieldname="price_list_rate"]',
+    'label:has-text("Price List Rate") + div input'
+  ]
+} as const;
+
 const commonSelectors = {
   dialogTitle: ['.modal-title', '[role="dialog"] .title-text', '.msgprint h4'],
   dialogBody: ['.modal-body', '.msgprint .modal-body', '[role="dialog"] .modal-body'],
   dialogClose: ['[role="dialog"] .btn-modal-close', '[role="dialog"] button.close', '[role="dialog"] .modal-header button'],
   toast: ['.toast-message', '.notifications .alert', '.notification-message', '.frappe-alert'],
-  autocompleteOption: ['.awesomplete ul li', '.ui-autocomplete li', '.link-option']
+  autocompleteOption: [
+    '.awesomplete ul li',
+    '.ui-autocomplete li',
+    '.link-option',
+    '[role="listbox"] [role="option"]',
+    '[role="option"]'
+  ]
 } as const;
 
 const templates = {
@@ -161,9 +205,11 @@ export const selectors = {
   itemList: itemListSelectors,
   manufacturerList: manufacturerListSelectors,
   itemManufacturerList: itemManufacturerListSelectors,
+  purchaseItemPriceList: purchaseItemPriceListSelectors,
   itemForm: itemFormSelectors,
   manufacturerForm: manufacturerFormSelectors,
   itemManufacturerForm: itemManufacturerFormSelectors,
+  purchaseItemPriceForm: purchaseItemPriceFormSelectors,
   common: commonSelectors,
   templates
 } as const;

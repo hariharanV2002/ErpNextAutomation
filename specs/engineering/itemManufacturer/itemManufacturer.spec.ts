@@ -1,10 +1,10 @@
 import { test } from "@playwright/test";
-import itemManufacturerData from "../../fixtures/item-manufacturer-test-data.json";
-import { CommonPage } from "../../pages/common/commonPage";
-import { ItemManufacturerPage } from "../../pages/itemManufacturer/itemManufacturerPage";
-import { DataStore } from "../../utils/dataStore";
-import { ManufacturerFactory } from "../../utils/manufacturerFactory";
-import { CreatedItemRecord, CreatedManufacturerRecord } from "../../utils/types";
+import itemManufacturerData from "../../../fixtures/item-manufacturer-test-data.json";
+import { CommonPage } from "../../../pages/common/commonPage";
+import { ItemManufacturerPage } from "../../../pages/itemManufacturer/itemManufacturerPage";
+import { DataStore } from "../../../utils/dataStore";
+import { ManufacturerFactory } from "../../../utils/manufacturerFactory";
+import { CreatedItemRecord, CreatedManufacturerRecord } from "../../../utils/types";
 
 test.describe.serial("Item Manufacturer E2E", () => {
   const itemStore = new DataStore("data/created-items.json");

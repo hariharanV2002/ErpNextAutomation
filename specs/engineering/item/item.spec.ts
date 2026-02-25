@@ -1,10 +1,10 @@
 import { expect, test } from "@playwright/test";
-import itemTestData from "../../fixtures/item-test-data.json";
-import { ItemFlow } from "../../flows/itemFlow";
-import { CommonPage } from "../../pages/common/commonPage";
-import { ItemPage } from "../../pages/item/itemPage";
-import { DataStore } from "../../utils/dataStore";
-import { ItemFactory } from "../../utils/itemFactory";
+import itemTestData from "../../../fixtures/item-test-data.json";
+import { ItemFlow } from "../../../flows/itemFlow";
+import { CommonPage } from "../../../pages/common/commonPage";
+import { ItemPage } from "../../../pages/item/itemPage";
+import { DataStore } from "../../../utils/dataStore";
+import { ItemFactory } from "../../../utils/itemFactory";
 
 test.describe.serial("Item Master E2E", () => {
   const store = new DataStore("data/created-items.json");

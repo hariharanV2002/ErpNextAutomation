@@ -179,28 +179,7 @@ export class ItemManufacturerPage {
   async selectManufacturerInQuickEntry(shortName: string): Promise<void> {
     const modal = this.getQuickEntryModal();
     const input = modal.locator(selectors.itemManufacturerForm.manufacturerInput.join(", ")).first();
-    await input.click({ force: true });
-    await input.fill("");
-    await input.fill(shortName);
-    await this.page.waitForTimeout(2200);
-
-    const option = this.page
-      .locator(`${selectors.common.autocompleteOption.join(", ")}:visible`)
-      .filter({ hasText: shortName })
-      .first();
-
-    if (await option.isVisible().catch(() => false)) {
-      await option.click({ force: true });
-      return;
-    }
-
-    const firstVisibleOption = this.page.locator(`${selectors.common.autocompleteOption.join(", ")}:visible`).first();
-    if (await firstVisibleOption.isVisible().catch(() => false)) {
-      await firstVisibleOption.click({ force: true });
-      return;
-    }
-
-    throw new Error(`Manufacturer dropdown option not visible for short name: ${shortName}`);
+    await this.selectAutocompleteValueInModal(modal, input, shortName, "Manufacturer");
   }
 
   async searchByPartNumber(partNumber: string): Promise<void> {
@@ -279,60 +258,7 @@ export class ItemManufacturerPage {
     await input.fill(value);
     await this.page.waitForTimeout(700);
 
-    const option = modal.locator(selectors.templates.autocompleteOptionByText(value)).first();
-    if (await option.isVisible({ timeout: 3000 }).catch(() => false)) {
-      await option.click({ force: true });
-    } else {
-      await input.press("ArrowDown");
-      await input.press("Enter");
-    }
-
-    await input.press("Tab", { timeout: 2000 }).catch(async () => {
-      await this.page.keyboard.press("Tab");
-    });
-
-    const selectedInputValue = (await input.inputValue().catch(() => "")).trim();
-    if (selectedInputValue) {
-      return;
-    }
-
-    const selectedText = modal.locator(selectors.templates.visibleTextLocator(value)).first();
-    if (await selectedText.isVisible().catch(() => false)) {
-      return;
-    }
-
-    const fallbackSeed = value.slice(0, 2);
-    if (fallbackSeed) {
-      await input.click({ force: true });
-      await input.fill("");
-      await input.fill(fallbackSeed);
-      await input.press("ArrowDown");
-      await input.press("Enter");
-      await input.press("Tab", { timeout: 2000 }).catch(async () => {
-        await this.page.keyboard.press("Tab");
-      });
-    }
-
-    const anyOption = modal.locator(selectors.common.autocompleteOption.join(", ")).first();
-    if (await anyOption.isVisible().catch(() => false)) {
-      await anyOption.click({ force: true });
-      await input.press("Tab", { timeout: 2000 }).catch(async () => {
-        await this.page.keyboard.press("Tab");
-      });
-      return;
-    }
-
-    await input.click({ force: true });
-    await input.fill("");
-    await input.type(value.slice(0, 1), { delay: 60 });
-    await this.page.waitForTimeout(400);
-    const retryOption = modal.locator(selectors.common.autocompleteOption.join(", ")).first();
-    if (await retryOption.isVisible().catch(() => false)) {
-      await retryOption.click({ force: true });
-      await input.press("Tab", { timeout: 2000 }).catch(async () => {
-        await this.page.keyboard.press("Tab");
-      });
-    }
+    await this.selectAutocompleteValueInModal(modal, input, value, fieldName);
   }
 
   private async readModalFieldValue(modal: Locator, candidates: readonly string[]): Promise<string> {
@@ -372,20 +298,80 @@ export class ItemManufacturerPage {
   private async selectLinkInQuickEntry(candidates: readonly string[], value: string): Promise<void> {
     const modal = this.getQuickEntryModal();
     const input = modal.locator(candidates.join(", ")).first();
+    await this.selectAutocompleteValueInModal(modal, input, value, "Quick Entry Link");
+  }
+
+  private async selectAutocompleteValueInModal(
+    modal: Locator,
+    input: Locator,
+    expectedValue: string,
+    fieldName: string
+  ): Promise<void> {
+    const normalizedExpected = expectedValue.toLowerCase().trim();
     await input.click({ force: true });
     await input.fill("");
-    await input.fill(value);
-    await this.page.waitForTimeout(1800);
-
-    const option = modal.locator(selectors.templates.autocompleteOptionByText(value)).first();
-    if (await option.isVisible().catch(() => false)) {
-      await option.click({ force: true });
-    } else {
-      await input.press("ArrowDown").catch(() => {});
-      await input.press("Enter").catch(() => {});
+    await input.fill(expectedValue);
+    await this.page.waitForTimeout(900);
+    if (await this.hasExpectedSelection(input, normalizedExpected)) {
+      await input.press("Tab").catch(async () => this.page.keyboard.press("Tab"));
+      return;
     }
-    await input.press("Tab").catch(async () => {
-      await this.page.keyboard.press("Tab");
-    });
+
+    const options = modal.locator(`${selectors.common.autocompleteOption.join(", ")}:visible`);
+    const optionCount = await options.count();
+    for (let i = 0; i < optionCount; i += 1) {
+      const option = options.nth(i);
+      const text = ((await option.textContent().catch(() => "")) || "").trim();
+      const normalizedText = text.toLowerCase();
+      const isCreateAction = normalizedText.includes("create a new");
+      if (!isCreateAction && normalizedText.includes(normalizedExpected)) {
+        await option.click({ force: true });
+        await input.press("Tab").catch(async () => this.page.keyboard.press("Tab"));
+        if (await this.hasExpectedSelection(input, normalizedExpected)) {
+          return;
+        }
+      }
+    }
+
+    await input.press("ArrowDown").catch(() => {});
+    await input.press("Enter").catch(() => {});
+    await input.press("Tab").catch(async () => this.page.keyboard.press("Tab"));
+    if (await this.hasExpectedSelection(input, normalizedExpected)) {
+      return;
+    }
+
+    const fallbackSeed = expectedValue.slice(0, 2);
+    if (fallbackSeed) {
+      await input.click({ force: true });
+      await input.fill("");
+      await input.fill(fallbackSeed);
+      await this.page.waitForTimeout(700);
+
+      const fallbackOptions = modal.locator(`${selectors.common.autocompleteOption.join(", ")}:visible`);
+      const fallbackCount = await fallbackOptions.count();
+      for (let i = 0; i < fallbackCount; i += 1) {
+        const option = fallbackOptions.nth(i);
+        const text = ((await option.textContent().catch(() => "")) || "").trim().toLowerCase();
+        const isCreateAction = text.includes("create a new");
+        if (!isCreateAction && text.includes(normalizedExpected)) {
+          await option.click({ force: true });
+          await input.press("Tab").catch(async () => this.page.keyboard.press("Tab"));
+          if (await this.hasExpectedSelection(input, normalizedExpected)) {
+            return;
+          }
+        }
+      }
+    }
+
+    throw new Error(`Could not select ${fieldName} from quick-entry dropdown: ${expectedValue}`);
+  }
+
+  private async hasExpectedSelection(input: Locator, expectedLower: string): Promise<boolean> {
+    const selectedInputValue = (await input.inputValue().catch(() => "")).trim().toLowerCase();
+    if (selectedInputValue.includes(expectedLower)) {
+      return true;
+    }
+    const selectedFromAria = ((await input.getAttribute("aria-activedescendant").catch(() => "")) || "").trim().toLowerCase();
+    return selectedFromAria.includes(expectedLower);
   }
 }

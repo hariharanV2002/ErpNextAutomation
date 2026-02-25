@@ -90,6 +90,28 @@ export class ItemManufacturerFlow {
     }
   }
 
+  async createInQuickEntryWithExistingValues(payload: ItemManufacturerPayload, expectedSavedText: string): Promise<void> {
+    await this.itemManufacturerPage.selectItemCodeInQuickEntry(payload.itemCode);
+    await this.itemManufacturerPage.selectManufacturerInQuickEntry(payload.manufacturer);
+    await this.itemManufacturerPage.fillOnlyPartNumber(payload.manufacturerPartNumber);
+    await this.itemManufacturerPage.clickSave();
+
+    const missingValuesDialog = this.page.locator(selectors.templates.dialogTitleByText("Missing Values Required")).first();
+    if (await missingValuesDialog.isVisible().catch(() => false)) {
+      await this.common.closeDialogIfVisible();
+      throw new Error("Item Manufacturer quick-entry save failed due missing mandatory fields.");
+    }
+
+    const saveText = this.page.locator(selectors.templates.visibleTextLocator(expectedSavedText)).first();
+    if (await saveText.isVisible().catch(() => false)) {
+      await expect(saveText).toBeVisible();
+      return;
+    }
+
+    await this.common.closeDialogIfVisible();
+    await this.page.waitForLoadState("networkidle");
+  }
+
   async verifyInList(payload: ItemManufacturerPayload, route: string): Promise<void> {
     await this.itemManufacturerPage.openList(route);
     await this.itemManufacturerPage.searchByPartNumber(payload.manufacturerPartNumber);

@@ -10,5 +10,65 @@
     "manufacturer": "MFR401142",
     "manufacturerPartNumber": "MPN-955",
     "createdAt": "2026-02-18T13:16:18.651Z"
+  },
+  {
+    "itemCode": "subasb-item-5552",
+    "manufacturer": "MFR293624",
+    "manufacturerPartNumber": "MPN-570",
+    "itemRole": "subassembly",
+    "source": "bom_seed",
+    "createdAt": "2026-02-21T06:23:57.648Z"
+  },
+  {
+    "itemCode": "subasb-item-4227",
+    "manufacturer": "MFR293624",
+    "manufacturerPartNumber": "MPN-703",
+    "itemRole": "subassembly",
+    "source": "bom_seed",
+    "createdAt": "2026-02-24T09:44:11.906Z"
+  },
+  {
+    "itemCode": "subasb-item-4227",
+    "manufacturer": "MFR293624",
+    "manufacturerPartNumber": "MPN-585",
+    "createdAt": "2026-02-24T09:45:07.902Z"
+  },
+  {
+    "itemCode": "subasb-item-4096",
+    "manufacturer": "MFR293624",
+    "manufacturerPartNumber": "MPN-361",
+    "itemRole": "subassembly",
+    "source": "bom_seed",
+    "createdAt": "2026-02-24T09:49:23.947Z"
+  },
+  {
+    "itemCode": "fg-item-7942",
+    "manufacturer": "MFR293624",
+    "manufacturerPartNumber": "MPN-991",
+    "createdAt": "2026-02-24T09:51:25.489Z"
+  },
+  {
+    "itemCode": "subasb-item-2976",
+    "manufacturer": "MFR349048",
+    "manufacturerPartNumber": "MPN-511",
+    "itemRole": "subassembly",
+    "source": "bom_seed",
+    "createdAt": "2026-02-25T07:15:37.170Z"
+  },
+  {
+    "itemCode": "subasb-item-6284",
+    "manufacturer": "MFR349048",
+    "manufacturerPartNumber": "MPN-700",
+    "itemRole": "subassembly",
+    "source": "bom_seed",
+    "createdAt": "2026-02-25T10:04:21.747Z"
+  },
+  {
+    "itemCode": "subasb-item-9520",
+    "manufacturer": "MFR349048",
+    "manufacturerPartNumber": "MPN-127",
+    "itemRole": "subassembly",
+    "source": "bom_seed",
+    "createdAt": "2026-02-25T10:15:42.945Z"
   }
 ]

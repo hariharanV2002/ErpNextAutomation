@@ -70,11 +70,17 @@ export class ItemFlow {
     await expect(this.page.locator(selectors.templates.textLocator(data.itemCode)).first()).toBeVisible({ timeout: 15000 });
   }
 
-  async verifyInList(data: ItemPayload, route: string): Promise<void> {
+  async verifyInList(
+    data: ItemPayload,
+    route: string,
+    options?: { validateItemGroup?: boolean }
+  ): Promise<void> {
     await this.itemPage.openList(route);
     await this.itemPage.searchByItemCode(data.itemCode);
     const row = await this.common.expectRowVisibleByCellValue(data.itemCode);
     await expect(row).toContainText(data.itemName);
-    await expect(row).toContainText(data.itemGroup);
+    if (options?.validateItemGroup !== false) {
+      await expect(row).toContainText(data.itemGroup);
+    }
   }
 }

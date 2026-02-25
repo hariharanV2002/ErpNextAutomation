@@ -9,6 +9,8 @@ export interface ItemPayload {
 
 export interface CreatedItemRecord extends ItemPayload {
   createdAt: string;
+  itemRole?: BomItemRole;
+  source?: string;
 }
 
 export interface ManufacturerPayload {
@@ -27,6 +29,23 @@ export interface ItemManufacturerPayload {
   manufacturerPartNumber: string;
 }
 
+export interface PurchaseItemPricePayload {
+  itemCode: string;
+  uom: string;
+  priceList: string;
+  supplier?: string;
+  priceListRate: string;
+}
+
+export interface CreatedItemPriceRecord extends PurchaseItemPricePayload {
+  counterpartyType: "supplier" | "customer";
+  counterpartyValue: string;
+}
+
 export interface CreatedItemManufacturerRecord extends ItemManufacturerPayload {
   createdAt: string;
+  itemRole?: BomItemRole;
+  source?: string;
 }
+
+export type BomItemRole = "raw_material" | "subassembly" | "main_fg";

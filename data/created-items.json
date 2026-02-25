@@ -1,83 +1,46 @@
 [
   {
-    "itemCode": "fg-item-7539",
-    "itemName": "Rustic Gold Shoes",
-    "itemGroup": "Products",
+    "itemCode": "rw-item-8026",
+    "itemName": "Wire",
+    "itemGroup": "Wire",
     "revisionNumber": "A",
     "builtType": "Standard",
     "hsnCode": "84439100",
-    "createdAt": "2026-02-18T07:47:47.334Z"
+    "itemRole": "raw_material",
+    "source": "bom_seed",
+    "createdAt": "2026-02-25T10:14:35.056Z"
   },
   {
-    "itemCode": "fg-item-5955",
-    "itemName": "Handmade Bronze Mouse",
-    "itemGroup": "Products",
+    "itemCode": "rw-item-8103",
+    "itemName": "Diode",
+    "itemGroup": "Diode",
     "revisionNumber": "A",
     "builtType": "Standard",
     "hsnCode": "84439100",
-    "createdAt": "2026-02-18T07:52:56.574Z"
+    "itemRole": "raw_material",
+    "source": "bom_seed",
+    "createdAt": "2026-02-25T10:14:53.431Z"
   },
   {
-    "itemCode": "fg-item-1117",
-    "itemName": "Soft Bamboo Sausages",
-    "itemGroup": "Products",
+    "itemCode": "rw-item-1078",
+    "itemName": "Resistor",
+    "itemGroup": "Resistor",
     "revisionNumber": "A",
     "builtType": "Standard",
     "hsnCode": "84439100",
-    "createdAt": "2026-02-18T08:20:20.470Z"
+    "itemRole": "raw_material",
+    "source": "bom_seed",
+    "createdAt": "2026-02-25T10:15:11.802Z"
   },
   {
-    "itemCode": "fg-item-4836",
-    "itemName": "Handmade Cotton Gloves",
-    "itemGroup": "Products",
+    "itemCode": "subasb-item-9520",
+    "itemName": "SUBASB Intelligent Aluminum Hat",
+    "itemGroup": "PCB Assembly",
     "revisionNumber": "A",
     "builtType": "Standard",
     "hsnCode": "84439100",
-    "createdAt": "2026-02-18T08:26:22.497Z"
-  },
-  {
-    "itemCode": "fg-item-7938",
-    "itemName": "Intelligent Steel Keyboard",
-    "itemGroup": "Products",
-    "revisionNumber": "A",
-    "builtType": "Standard",
-    "hsnCode": "84439100",
-    "createdAt": "2026-02-18T09:30:58.755Z"
-  },
-  {
-    "itemCode": "fg-item-8993",
-    "itemName": "Recycled Wooden Salad",
-    "itemGroup": "Products",
-    "revisionNumber": "A",
-    "builtType": "Standard",
-    "hsnCode": "84439100",
-    "createdAt": "2026-02-18T09:33:36.186Z"
-  },
-  {
-    "itemCode": "fg-item-3986",
-    "itemName": "Recycled Marble Shirt",
-    "itemGroup": "Products",
-    "revisionNumber": "A",
-    "builtType": "Standard",
-    "hsnCode": "84439100",
-    "createdAt": "2026-02-18T09:41:54.586Z"
-  },
-  {
-    "itemCode": "fg-item-5797",
-    "itemName": "Fantastic Marble Tuna",
-    "itemGroup": "Products",
-    "revisionNumber": "A",
-    "builtType": "Standard",
-    "hsnCode": "84439100",
-    "createdAt": "2026-02-18T11:26:16.013Z"
-  },
-  {
-    "itemCode": "fg-item-4769",
-    "itemName": "Bespoke Marble Ball",
-    "itemGroup": "Products",
-    "revisionNumber": "A",
-    "builtType": "Standard",
-    "hsnCode": "84439100",
-    "createdAt": "2026-02-18T13:15:59.141Z"
+    "itemRole": "subassembly",
+    "source": "bom_seed",
+    "createdAt": "2026-02-25T10:15:30.573Z"
   }
 ]

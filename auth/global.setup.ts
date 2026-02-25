@@ -17,8 +17,8 @@ async function globalSetup(_config: FullConfig): Promise<void> {
   }
 
   const browser = await chromium.launch({
-    headless: false,
-    slowMo: 80,
+    headless: process.env.PW_HEADLESS === "true",
+    slowMo: process.env.PW_HEADLESS === "true" ? 0 : 80,
     args: ["--start-maximized", "--force-device-scale-factor=1", "--high-dpi-support=1"]
   });
   const context = await browser.newContext({ viewport: null });

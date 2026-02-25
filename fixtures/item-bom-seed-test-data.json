@@ -1,0 +1,38 @@
+{
+  "routes": {
+    "itemList": "/app/item",
+    "itemManufacturerList": "/app/item-manufacturer"
+  },
+  "commonDefaults": {
+    "revisionNumber": "A",
+    "builtType": "Standard",
+    "hsnCode": "84439100"
+  },
+  "counts": {
+    "rawMaterial": 3
+  },
+  "itemSeeds": {
+    "rawMaterial": {
+      "codePrefix": "rw-item",
+      "catalog": [
+        "Connector",
+        "Diode",
+        "Resistor",
+        "Wire"
+      ]
+    },
+    "subassembly": {
+      "codePrefix": "subasb-item",
+      "itemGroups": [
+        "Sub Assemblies",
+        "Cable Assembly",
+        "Full Assembly",
+        "PCB Assembly"
+      ],
+      "namePrefix": "SUBASB"
+    }
+  },
+  "positiveMessages": {
+    "saved": "Saved"
+  }
+}

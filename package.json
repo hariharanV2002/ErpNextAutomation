@@ -7,6 +7,7 @@
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "test:item": "playwright test specs/item/item.spec.ts",
+    "test:item:bom-seed": "playwright test specs/item/item-bom-seed.spec.ts",
     "test:headed": "playwright test --headed",
     "show-report": "playwright show-report",
     "typecheck": "tsc --noEmit"

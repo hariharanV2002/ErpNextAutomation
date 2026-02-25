@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { ItemPayload } from "./types";
+import { BomItemRole, ItemPayload } from "./types";
 
 export interface ItemFactoryInput {
   codePrefix: string;
@@ -7,6 +7,10 @@ export interface ItemFactoryInput {
   revisionNumber: string;
   builtType: string;
   hsnCode: string;
+}
+
+export interface SeedItemPayload extends ItemPayload {
+  itemRole: BomItemRole;
 }
 
 export class ItemFactory {
@@ -19,6 +23,19 @@ export class ItemFactory {
       revisionNumber: input.revisionNumber,
       builtType: input.builtType,
       hsnCode: input.hsnCode
+    };
+  }
+
+  static createSeedItem(
+    input: ItemFactoryInput,
+    itemRole: BomItemRole,
+    namePrefix: string
+  ): SeedItemPayload {
+    const generated = this.create(input);
+    return {
+      ...generated,
+      itemName: `${namePrefix} ${generated.itemName}`.slice(0, 120),
+      itemRole
     };
   }
 }

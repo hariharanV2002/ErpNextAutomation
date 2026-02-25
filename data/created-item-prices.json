@@ -1,0 +1,105 @@
+[
+  {
+    "itemCode": "10009-97099",
+    "uom": "Nos",
+    "priceList": "Standard Buying - INR",
+    "priceListRate": "10",
+    "counterpartyType": "supplier",
+    "counterpartyValue": "Future Electronics Inc",
+    "createdAt": "2026-02-25T08:27:55.928Z"
+  },
+  {
+    "itemCode": "rw-item-9307",
+    "uom": "Nos",
+    "priceList": "Standard Buying - INR",
+    "priceListRate": "10",
+    "counterpartyType": "supplier",
+    "counterpartyValue": "Kaynes Technology India Limited - 01",
+    "createdAt": "2026-02-25T09:43:22.873Z"
+  },
+  {
+    "itemCode": "rw-item-6804",
+    "uom": "Nos",
+    "priceList": "Standard Buying - INR",
+    "priceListRate": "10",
+    "counterpartyType": "supplier",
+    "counterpartyValue": "Kaynes Electronics Manufacturing Private Limited",
+    "createdAt": "2026-02-25T09:43:39.531Z"
+  },
+  {
+    "itemCode": "rw-item-3315",
+    "uom": "Nos",
+    "priceList": "Standard Buying - INR",
+    "priceListRate": "10",
+    "counterpartyType": "supplier",
+    "counterpartyValue": "Kaynes Technology India Limited - 01",
+    "createdAt": "2026-02-25T09:43:56.720Z"
+  },
+  {
+    "itemCode": "rw-item-9307",
+    "uom": "Nos",
+    "priceList": "Standard Buying - INR",
+    "priceListRate": "10",
+    "counterpartyType": "supplier",
+    "counterpartyValue": "Future Electronics Inc",
+    "createdAt": "2026-02-25T09:46:37.861Z"
+  },
+  {
+    "itemCode": "rw-item-1660",
+    "uom": "Nos",
+    "priceList": "Standard Buying - INR",
+    "priceListRate": "10",
+    "counterpartyType": "supplier",
+    "counterpartyValue": "Future Electronics Inc",
+    "createdAt": "2026-02-25T10:06:05.822Z"
+  },
+  {
+    "itemCode": "rw-item-2285",
+    "uom": "Nos",
+    "priceList": "Standard Buying - INR",
+    "priceListRate": "10",
+    "supplier": "Future Electronics Inc",
+    "counterpartyType": "supplier",
+    "counterpartyValue": "Future Electronics Inc",
+    "createdAt": "2026-02-25T10:06:27.704Z"
+  },
+  {
+    "itemCode": "rw-item-4879",
+    "uom": "Nos",
+    "priceList": "Standard Buying - INR",
+    "priceListRate": "10",
+    "supplier": "Future Electronics Inc",
+    "counterpartyType": "supplier",
+    "counterpartyValue": "Future Electronics Inc",
+    "createdAt": "2026-02-25T10:06:48.911Z"
+  },
+  {
+    "itemCode": "rw-item-1078",
+    "uom": "Nos",
+    "priceList": "Standard Buying - INR",
+    "priceListRate": "10",
+    "counterpartyType": "supplier",
+    "counterpartyValue": "Avnet Asia Pte Ltd",
+    "createdAt": "2026-02-25T10:17:06.120Z"
+  },
+  {
+    "itemCode": "rw-item-8103",
+    "uom": "Nos",
+    "priceList": "Standard Buying - INR",
+    "priceListRate": "10",
+    "supplier": "Avnet Asia Pte Ltd",
+    "counterpartyType": "supplier",
+    "counterpartyValue": "Avnet Asia Pte Ltd",
+    "createdAt": "2026-02-25T10:17:26.660Z"
+  },
+  {
+    "itemCode": "rw-item-8026",
+    "uom": "Nos",
+    "priceList": "Standard Buying - INR",
+    "priceListRate": "10",
+    "supplier": "Avnet Asia Pte Ltd",
+    "counterpartyType": "supplier",
+    "counterpartyValue": "Avnet Asia Pte Ltd",
+    "createdAt": "2026-02-25T10:17:48.128Z"
+  }
+]

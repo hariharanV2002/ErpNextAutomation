@@ -17,7 +17,7 @@ export default defineConfig({
   use: {
     baseURL: process.env.BASE_URL,
     storageState: "./playwright/.auth/user.json",
-    headless: false,
+    headless: process.env.PW_HEADLESS === "true",
     trace: "on-first-retry",
     screenshot: "only-on-failure",
     video: "retain-on-failure",

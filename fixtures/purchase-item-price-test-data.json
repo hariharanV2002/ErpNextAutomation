@@ -1,0 +1,24 @@
+{
+  "routes": {
+    "itemPriceList": "/app/item-price"
+  },
+  "defaults": {
+    "uom": "Nos",
+    "priceList": "Standard Buying - INR",
+    "priceListRate": "10"
+  },
+  "positiveMessages": {
+    "saved": "Saved"
+  },
+  "negativeMessages": {
+    "missingFieldsBodyWithColon": "Following fields have missing values:",
+    "missingFieldsBody": "Following fields have missing values",
+    "missingFieldsBodyAlternate": "Mandatory fields required in Item Price",
+    "missingItemCodeField": "Item Code",
+    "missingUomField": "UOM",
+    "missingPriceListField": "Price List",
+    "missingRateField": "Rate",
+    "missingSupplierField": "Supplier",
+    "missingCustomerField": "Customer"
+  }
+}
